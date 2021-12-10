@@ -28,7 +28,7 @@ def get_short_url(request, url):
 
 #Receives a short URL and returns the original long url with the click count
 def get_long_url(request, url):
-	if(len(url) > 5):
+	if(len(url) != 5):
 		return HttpResponse("Please use the short url here")
 	result = Url.objects.filter(short=url)
 	if result.exists():
@@ -38,7 +38,7 @@ def get_long_url(request, url):
 
 #Redirects to the original website while incrementing the click count
 def redirect_url(request, url):
-	if(len(url) > 5):
+	if(len(url) != 5):
 		return HttpResponse("Please use the short url here")
 	result = Url.objects.filter(short=url)
 	if result.exists():
@@ -49,3 +49,7 @@ def redirect_url(request, url):
 		return redirect(full_path)
 	else:
 		return HttpResponse("This short url does not exists")
+
+
+def index(request):
+	return HttpResponse("Welcome, please use one of these endpoints: '/short/(url)', '/long/(short_url)', '/(short_url)'")
