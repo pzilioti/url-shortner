@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  visualizacao_cotacao:
+  shortner:
     image: zilioti.dev/shortner
     restart: always
     container_name: shortner
