@@ -55,5 +55,15 @@ The project is running on my server.
 ## Next steps
 
 
+This project was a quick prototype. As such, it still have room to improve.
+
+ - Database
+I'm using the default django sqlite database. While it works fine, for production I'd use a more robust solution.
+ - Hash collision detection
+The shortened url is generated via a md5 hash of the original url. While collision is rare, it'd be nice to have a way to avoid it
+ - Better url validation
+For now, *www.google.com* and *google.com* is considered two different urls and as such the shortened version would be different. Also, the project assumes the https protocol for the url when none is given, but in reality it should be tested.
+ - Frontend
+There's no frontend in the project, A nice page where the user can provide the url and get back the shortened version and see the click count would be nice in production.
 
 
